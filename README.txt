@@ -7,5 +7,4 @@
 ## Youtube Turorial
  
 ## How to configure and run
-
 ## How to contribute
