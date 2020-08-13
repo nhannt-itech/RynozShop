@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using RynozShop.Data.Entities;
 using RynozShop.Data.Enums;
 using System;
@@ -127,6 +128,40 @@ namespace RynozShop.Data.Extensions
             modelBuilder.Entity<ProductInCategory>().HasData(
                 new ProductInCategory() { ProductId = 1, CategoryId = 1 }
                 );
+
+            var ROLE_ID = new Guid("999EDBAF-D1B4-4731-BC78-E1DFE968AADD");
+            var ADMIN_ID = new Guid("61171D84-C0F4-4998-94E4-2315D1EF146F");
+
+            modelBuilder.Entity<AppRole>().HasData(new AppRole
+            {
+                Id = ROLE_ID,
+                Name = "admin",
+                NormalizedName = "admin",
+                Description = "Administrator role"
+            });
+
+            var hasher = new PasswordHasher<AppUser>();
+            modelBuilder.Entity<AppUser>().HasData(new AppUser
+            {
+                Id = ADMIN_ID,
+                UserName = "admin",
+                NormalizedUserName = "admin",
+                Email = "rynoz2k@gmail.com",
+                NormalizedEmail = "rynoz2k@gmail.com",
+                EmailConfirmed = true,
+                PasswordHash = hasher.HashPassword(null, "abcd1234$"),
+                SecurityStamp = string.Empty,
+                FirstName = "Nhan",
+                LastName = "Nguyen",
+                Dob = new DateTime(2000,05,21)
+
+            });
+
+            modelBuilder.Entity<IdentityUserRole<Guid>>().HasData(new IdentityUserRole<Guid>
+            {
+                RoleId = ROLE_ID,
+                UserId = ADMIN_ID
+            });
         }
     }
 }
