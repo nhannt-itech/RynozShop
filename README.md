@@ -1,4 +1,4 @@
-# ASP.NET CORE 3.1 Made By Rynoz
+﻿# ASP.NET CORE 3.1 Made By Rynoz
 
 ## Technologies
 - ASP.NET Core 3.1
@@ -11,3 +11,7 @@
  
 ## How to configure and run
 ## How to contribute
+
+## Note
+
+- Nếu không được thì add-migration SeedData --> update-database

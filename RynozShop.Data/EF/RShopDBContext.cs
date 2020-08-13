@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RynozShop.Data.Configurations;
 using RynozShop.Data.Entities;
+using RynozShop.Data.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,6 +18,7 @@ namespace RynozShop.Data.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //Configure using fluent API
             modelBuilder.ApplyConfiguration(new AppConfigConfiguration());
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
@@ -30,6 +32,8 @@ namespace RynozShop.Data.EF
             modelBuilder.ApplyConfiguration(new PromotionConfiguration());
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
             modelBuilder.ApplyConfiguration(new ProductImageConfiguration());
+            //Data Seeding
+            modelBuilder.Seed();
 
             //base.OnModelCreating(modelBuilder);
         }
