@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RynozShop.Data.EF;
 
 namespace RynozShop.Data.Migrations
 {
     [DbContext(typeof(RShopDBContext))]
-    partial class RShopDBContextModelSnapshot : ModelSnapshot
+    [Migration("20200813114501_AspNETCoreIdentityDatabase")]
+    partial class AspNETCoreIdentityDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -92,13 +94,6 @@ namespace RynozShop.Data.Migrations
                     b.HasKey("UserId", "RoleId");
 
                     b.ToTable("AppUserRole");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = new Guid("61171d84-c0f4-4998-94e4-2315d1ef146f"),
-                            RoleId = new Guid("999edbaf-d1b4-4731-bc78-e1dfe968aadd")
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
@@ -175,16 +170,6 @@ namespace RynozShop.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("999edbaf-d1b4-4731-bc78-e1dfe968aadd"),
-                            ConcurrencyStamp = "93e2942a-8606-4f0c-8b12-038dccb9fc7a",
-                            Description = "Administrator role",
-                            Name = "admin",
-                            NormalizedName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("RynozShop.Data.Entities.AppUser", b =>
@@ -251,27 +236,6 @@ namespace RynozShop.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AppUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = new Guid("61171d84-c0f4-4998-94e4-2315d1ef146f"),
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "4b2eb973-a09d-4872-9659-8b0bb5b3a16e",
-                            Dob = new DateTime(2000, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "rynoz2k@gmail.com",
-                            EmailConfirmed = true,
-                            FirstName = "Nhan",
-                            LastName = "Nguyen",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "rynoz2k@gmail.com",
-                            NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEHCd1jalPTDBJHV/nPrrMlNcbXOEGMKfXf9FIu+0QyilrEkqk953h/HwNL735sr0WQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "",
-                            TwoFactorEnabled = false,
-                            UserName = "admin"
-                        });
                 });
 
             modelBuilder.Entity("RynozShop.Data.Entities.Cart", b =>
@@ -612,7 +576,7 @@ namespace RynozShop.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2020, 8, 13, 19, 4, 20, 35, DateTimeKind.Local).AddTicks(9973),
+                            DateCreated = new DateTime(2020, 8, 13, 18, 45, 0, 155, DateTimeKind.Local).AddTicks(526),
                             OriginalPrice = 100000m,
                             Price = 200000m,
                             Stock = 0,
